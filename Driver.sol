@@ -156,7 +156,7 @@ contract Driver is Ownable{
     
     
     //Events to fetch data
-    event LogofDrivers(address driver,string ifname);
+     event LogofDrivers(address driver,string ifname,uint256 charges);
     
     //Function to get all Drivers in your City(For User Contract)
     function driverLoop(string memory _city) public{
@@ -166,7 +166,7 @@ contract Driver is Ownable{
             }
         }
         for(uint256 i=0;i<CustomdriverList.length;i++){
-            emit LogofDrivers(CustomdriverList[i], profile[CustomdriverList[i]].fName);
+            emit LogofDrivers(CustomdriverList[i], profile[CustomdriverList[i]].fName,profile[CustomdriverList[i]].payPerKmINwei);
         }        
     }
     
